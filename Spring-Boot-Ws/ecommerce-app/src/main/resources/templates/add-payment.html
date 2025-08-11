@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Add Payment</title></head>
+<body>
+<h1>Add Payment</h1>
+<form th:action="@{/save-payment}" method="post" th:object="${payment}">
+    Order ID: <input type="number" th:field="*{orderId}" /><br/>
+    Amount: <input type="number" step="0.01" th:field="*{amount}" /><br/>
+    Status: <input type="text" th:field="*{status}" /><br/>
+    Payment Date: <input type="datetime-local" th:field="*{paymentDate}" /><br/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
