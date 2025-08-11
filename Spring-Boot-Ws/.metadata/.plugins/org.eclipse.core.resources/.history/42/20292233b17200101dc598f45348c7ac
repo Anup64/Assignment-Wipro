@@ -1,5 +1,0 @@
-package com.example.ecommerce_app_rest_api.config;
-
-public class OpenAPIConfig {
-
-}
