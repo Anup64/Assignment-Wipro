@@ -1,0 +1,46 @@
+package com.example.ecommerce_app.service;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.ecommerce_app.model.Payment;
+import com.example.ecommerce_app.repository.PaymentRepository;
+
+@Service
+public class PaymentService {
+    @Autowired private PaymentRepository paymentRepo;
+
+    public Payment makePayment(Long orderId, Double amount) {
+        Payment payment = new Payment();
+        payment.setOrderId(orderId);
+        payment.setAmount(amount);
+        payment.setStatus("SUCCESS");
+        payment.setPaymentDate(LocalDateTime.now());
+        return paymentRepo.save(payment);
+    }
+
+	public List<Payment> getAllPayments() {
+		// TODO Auto-generated method stub
+		return paymentRepo.findAll();
+	}
+
+	public void savePayment(Payment payment) {
+		// TODO Auto-generated method stub
+		paymentRepo.save(payment);
+		
+	}
+
+	public Payment getPaymentById(Long id) {
+		// TODO Auto-generated method stub
+		return paymentRepo.findById(id).get();
+	}
+
+	public void deletePayment(Long id) {
+		// TODO Auto-generated method stub
+		paymentRepo.deleteById(id);
+		
+	}
+}

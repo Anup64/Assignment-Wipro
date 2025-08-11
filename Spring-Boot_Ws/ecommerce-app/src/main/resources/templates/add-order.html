@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Add Order</title></head>
+<body>
+<h1>Add Order</h1>
+<form th:action="@{/save-order}" method="post" th:object="${order}">
+    Customer ID: <input type="number" th:field="*{customerId}" /><br/>
+    Product ID: <input type="number" th:field="*{productId}" /><br/>
+    Quantity: <input type="number" th:field="*{quantity}" /><br/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
