@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Order</title>
+</head>
+<body>
+
+<h1>Place New Order</h1>
+
+<form action="/save-order" method="post" th:object="${order}">
+
+    <label for="customer">Select Customer:</label>
+    <select name="customer.id" th:field="*{customer.id}">
+        <option th:each="customer : ${customers}" 
+                th:value="${customer.id}" 
+                th:text="${customer.name}">
+        </option>
+    </select><!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Order</title>
+</head>
+<body>
+
+<h1>Place a New Order</h1>
+
+<form th:action="@{/save-order}" th:object="${order}" method="post">
+
+    <!-- Select Customer -->
+    <label>Customer:</label>
+    <select name="customer.id">
+        <option th:each="cust : ${customers}"
+                th:value="${cust.id}"
+                th:text="${cust.name}">
+        </option>
+    </select>
+    <br/><br/>
+
+    <!-- Select Multiple Products -->
+    <label>Products:</label><br/>
+    <div th:each="prod : ${products}">
+        <input type="checkbox" name="productIds"
+               th:value="${prod.id}" />
+        <span th:text="${prod.name}">Product Name</span><br/>
+    </div>
+    <br/>
+
+    <!-- Submit Button -->
+    <button type="submit">Place Order</button>
+
+</form>
+
+<br/>
+<a href="/order-list">Back to Order List</a>
+
+</body>
+</html>
+    
+    <br/><br/>
+
+    <label>Select Products:</label><br/>
+    <div th:each="product : ${products}">
+        <input type="checkbox" th:name="productIds"
+               th:value="${product.id}" 
+               th:id="'prod-' + ${product.id}" />
+        <label th:for="'prod-' + ${product.id}" 
+               th:text="${product.name}"></label>
+        <br/>
+    </div>
+
+    <br/>
+    <button type="submit">Place Order</button>
+
+</form>
+
+</body>
+</html>

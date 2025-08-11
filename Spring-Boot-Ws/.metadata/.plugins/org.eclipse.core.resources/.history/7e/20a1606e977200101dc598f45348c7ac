@@ -1,0 +1,13 @@
+package com.example.movie_booking_app_rest_api_using_relationship.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.ecommerce_app.model.Customer;
+
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
+
+	com.example.movie_booking_app_rest_api_using_relationship.model.Customer save(
+			com.example.movie_booking_app_rest_api_using_relationship.model.Customer customer);
+
+	com.example.movie_booking_app_rest_api_using_relationship.model.Customer saveAll(
+			com.example.movie_booking_app_rest_api_using_relationship.model.Customer customer);}

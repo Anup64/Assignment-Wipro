@@ -1,0 +1,33 @@
+<!-- templates/add-order.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Order</title>
+</head>
+<body>
+    <h1>Add New Order</h1>
+    <form th:action="@{/save-order}" th:object="${order}" method="post">
+        <label>Customer:</label>
+        <select th:field="*{customer}">
+            <option th:each="customer : ${customers}" 
+                    th:value="${customer.id}" 
+                    th:text="${customer.name}"></option>
+        </select>
+        <br><br>
+
+        <label>Product:</label>
+        <select th:field="*{product}">
+            <option th:each="product : ${products}" 
+                    th:value="${product.id}" 
+                    th:text="${product.name}"></option>
+        </select>
+        <br><br>
+
+        <label>Quantity:</label>
+        <input type="number" th:field="*{quantity}" />
+        <br><br>
+
+        <button type="submit">Place Order</button>
+    </form>
+</body>
+</html>

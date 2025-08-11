@@ -1,0 +1,2 @@
+spring.application.name=first-spring-boot-app
+spring.port = 1111

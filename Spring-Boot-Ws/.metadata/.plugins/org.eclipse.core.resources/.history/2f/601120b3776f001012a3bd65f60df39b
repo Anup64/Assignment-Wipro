@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Education</title>
+</head>
+<body>
+    <h2>Education</h2>
+    <div>
+        <h3>Bachelor of Technology</h3>
+        <p>Noida Institute of Engineering and Technology (2020–2024)</p>
+        <p><strong>CGPA:</strong> 8.15</p>
+    </div>
+    <div>
+        <h3>Pre-University Education</h3>
+        <p>MSVM Siwan (2016–2017)</p>
+        <p><strong>Percentage:</strong> 78.86%</p>
+    </div>
+
+    <a href="/skill.html"><button>Next: Skills</button></a>
+</body>
+</html>

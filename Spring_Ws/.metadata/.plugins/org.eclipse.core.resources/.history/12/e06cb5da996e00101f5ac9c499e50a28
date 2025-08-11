@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Doctor Schedule -->
+    <util:map id="doctorSchedule" map-class="java.util.HashMap"
+              xmlns:util="http://www.springframework.org/schema/util">
+
+        <entry key="DOC101">
+            <list value-type="java.time.LocalDate">
+                <value>2025-04-10</value>
+                <value>2025-04-12</value>
+            </list>
+        </entry>
+    </util:map>
+
+    <!-- DoctorRepository -->
+    <bean id="doctorRepository" class="repository.DoctorRepository">
+        <property name="doctorSchedule" ref="doctorSchedule" />
+    </bean>
+
+    <!-- AppointmentService -->
+    <bean id="appointmentService" class="service.AppointmentService">
+        <property name="doctorRepository" ref="doctorRepository"/>
+    </bean>
+</beans>

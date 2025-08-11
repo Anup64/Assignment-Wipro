@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Education</title></head>
+<body>
+    <h2>Education</h2>
+    <div>
+        <h3>Bachelor of Engineering</h3>
+        <p>GOVERNMENT ENGINEERING COLLEGE RAMANAGARA (2017–2021)</p>
+        <p><strong>CGPA:</strong> 8.15</p>
+    </div>
+    <div>
+        <h3>Pre-University Education</h3>
+        <p>CHENNAMBIKA PU COLLEGE (2016–2017)</p>
+        <p><strong>Percentage:</strong> 78.86%</p>
+    </div>
+    <a th:href="@{/skills}">
+    <button>Next: Skills</button>
+</a>
+    
+</body>
+</html>

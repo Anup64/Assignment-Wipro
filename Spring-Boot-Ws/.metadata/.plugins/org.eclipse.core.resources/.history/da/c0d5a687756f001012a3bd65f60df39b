@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Skills</title></head>
+<body>
+    <h2>Skills</h2>
+    <ul>
+        <li>JAVA</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>BOOTSTRAP</li>
+        <li>JAVASCRIPT</li>
+        <li>TYPESCRIPT</li>
+        <li>ANGULAR</li>
+    </ul>
+</body>
+</html>

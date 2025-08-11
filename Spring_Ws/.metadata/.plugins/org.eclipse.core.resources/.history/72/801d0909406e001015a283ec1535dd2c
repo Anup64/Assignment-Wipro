@@ -1,0 +1,24 @@
+package com.airline.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class TicketService {
+
+    private final FlightService flightService;
+
+    @Autowired
+    public TicketService(FlightService flightService) {
+        this.flightService = flightService;
+    }
+
+    public String confirmBooking(String flightNumber, String userId) {
+        if (flightService.isSeatAvailable(flightNumber)) {
+            flightService.bookSeat(flightNumber);
+            return "Booking confirmed for " + userId + " on " + flightNumber;
+        } else {
+            return "Flight " + flightNumber + " is full";
+        }
+    }
+}

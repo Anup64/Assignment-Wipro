@@ -1,0 +1,42 @@
+package com.example.movie_customer_service.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.movie_customer_service.model.MovieCustomer;
+import com.example.movie_customer_service.service.CustomerService;
+
+@RestController
+@RequestMapping("/api/moviecustomers")
+public class CustomerController {
+    @Autowired
+    private CustomerService customerService;
+
+    @GetMapping
+    public List<MovieCustomer> getAll() { return customerService.getAll(); }
+
+    @GetMapping("/{id}")
+    public MovieCustomer getById(@PathVariable Long id) { return customerService.getById(id); }
+
+    @PostMapping
+    public MovieCustomer save(@RequestBody MovieCustomer customer) { return customerService.save(customer); }
+    
+  
+    @PutMapping("/{id}")
+    public MovieCustomer update(@PathVariable Long id, @RequestBody MovieCustomer customer) {
+        customer.setId(id);
+        return customerService.save(customer);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) { customerService.delete(id); }
+}

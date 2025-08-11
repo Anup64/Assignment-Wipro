@@ -1,0 +1,18 @@
+package repository;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
+
+public class DoctorRepository {
+    private Map<String, List<LocalDate>> doctorSchedule;
+
+    public void setDoctorSchedule(Map<String, List<LocalDate>> doctorSchedule) {
+        this.doctorSchedule = doctorSchedule;
+    }
+
+    public boolean isAvailable(String doctorId, LocalDate date) {
+        List<LocalDate> availableDates = doctorSchedule.get(doctorId);
+        return availableDates != null && availableDates.contains(date);
+    }
+}

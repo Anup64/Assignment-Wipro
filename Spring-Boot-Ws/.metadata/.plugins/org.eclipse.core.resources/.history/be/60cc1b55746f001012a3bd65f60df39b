@@ -1,0 +1,14 @@
+<h2>About Me</h2>
+<div class="container">
+  <div class="left">
+    <h3>About Me</h3>
+    <p>From a young age, I’ve always had a sense of motivation and passion...</p>
+  </div>
+  <div class="right">
+    <h3>Basic Information</h3>
+    <p><strong>Date Of Birth:</strong> 8123308575</p>
+    <p><strong>E-mail:</strong> rakshithavl78@gmail.com</p>
+    <p><strong>Mobile No:</strong> 8123308575</p>
+    <p><strong>Address:</strong> #175 Vandaraguppe, Ramanagara</p>
+  </div>
+</div>

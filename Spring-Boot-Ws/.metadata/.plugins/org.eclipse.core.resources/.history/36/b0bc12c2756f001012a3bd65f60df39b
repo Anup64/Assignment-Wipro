@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Contact</title></head>
+<body>
+    <h2>Contact Me</h2>
+    <form action="#" method="post">
+        <label>Name:</label><input type="text" /><br />
+        <label>Subject:</label><input type="text" /><br />
+        <label>Email:</label><input type="email" /><br />
+        <button>Send</button>
+    </form>
+    <p><strong>Phone:</strong> +91 8123308575</p>
+    <p><strong>Email:</strong> rakshithavl78@gmail.com</p>
+    <a th:href="@{/about}">
+    <button>Back to About</button>
+</a>
+    
+</body>
+</html>

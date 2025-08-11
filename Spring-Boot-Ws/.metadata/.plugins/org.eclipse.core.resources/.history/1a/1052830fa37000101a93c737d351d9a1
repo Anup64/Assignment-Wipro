@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home - E-Commerce App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a.action-link {
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        a.action-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome to E-Commerce App - Home</h1>
+
+<nav>
+    <a href="/add-customer">Add Customer</a>
+    <a href="/products">Products</a>
+    <a href="/orders">Orders</a>
+    <a href="/payments">Payments</a>
+</nav>
+
+<div align="center">
+    <h1>Customer List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="customer : ${customerList}">
+                <td th:text="${customer.id}">1</td>
+                <td th:text="${customer.name}">Name</td>
+                <td th:text="${customer.password}">Password</td>
+                <td th:text="${customer.email}">Email</td>
+                <td>
+                    <a th:href="@{'/edit/' + ${customer.id}}" class="action-link">Edit</a> |
+                    <a th:href="@{'/delete/' + ${customer.id}}" class="action-link">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

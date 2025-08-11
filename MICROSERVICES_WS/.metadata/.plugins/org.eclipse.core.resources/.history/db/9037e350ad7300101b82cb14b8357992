@@ -1,0 +1,18 @@
+spring.application.name=theater-service
+
+server.port=5555
+#properties - eureka-client
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true		
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+eureka.instance.hostname=localhost
+			
+spring.datasource.url=jdbc:postgresql://localhost:5433/theater-service-db
+spring.datasource.username=postgres
+spring.datasource.password=Anup123#
+spring.datasource.driverClassName=org.postgresql.Driver
+spring.jpa.show-sql=true
+spring.jpa.format-sql=true
+spring.jpa.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+

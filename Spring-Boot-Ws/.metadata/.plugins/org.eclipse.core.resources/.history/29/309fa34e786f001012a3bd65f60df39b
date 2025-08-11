@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Me</title>
+</head>
+<body>
+    <h2>About Me</h2>
+    <p>From a young age, I’ve always had a sense of motivation and passion...</p>
+    <p><strong>Date Of Birth:</strong> 07-11-2000</p>
+    <p><strong>Email:</strong> anup@gmail.com</p>
+    <p><strong>Phone:</strong> 8123308575</p>
+    <p><strong>Address:</strong> Siwan, Bihar</p>
+
+    <a href="/education.html" style="text-decoration: none;">
+    <div style="display: inline-block; padding: 10px 20px; background-color: #007BFF; color: white; border-radius: 5px;">
+        Next: Education
+    </div>
+</a>
+
+</body>
+</html>

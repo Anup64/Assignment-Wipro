@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>About Me</title>
+</head>
+<body>
+    <h2>About Me</h2>
+    <p>From a young age, I’ve always had a sense of motivation and passion...</p>
+    <p><strong>Date Of Birth:</strong> 07-11-2000</p>
+    <p><strong>Email:</strong> rakshithavl78@gmail.com</p>
+    <p><strong>Phone:</strong> 8123308575</p>
+    <p><strong>Address:</strong> #175 Vandaraguppe, Ramanagara</p>
+</body>
+</html>

@@ -1,0 +1,73 @@
+package com.example.movie_customer_service.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.movie_customer_service.model.MovieCustomer;
+import com.example.movie_customer_service.service.CustomerService;
+
+@RestController
+@RequestMapping("/api/movie/customers")
+public class CustomerController {
+    @Autowired
+    private CustomerService customerService;
+    
+    @Autowired
+    private RestTemplate restTemplate;
+    
+    private final String BOOKING_SERVICE_URL = "http://localhost:6666/api/bookings/";
+
+    @GetMapping
+    public List<MovieCustomer> getAll() { 
+    	return customerService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public MovieCustomer getById(@PathVariable Long id){
+    	return customerService.getById(id); 
+    }
+
+    @PostMapping
+    public MovieCustomer save(@RequestBody MovieCustomer customer) {
+    	return customerService.save(customer);
+    }
+    
+  
+    @PutMapping("/{id}")
+    public MovieCustomer update(@PathVariable Long id, @RequestBody MovieCustomer customer) {
+        customer.setId(id);
+        return customerService.save(customer);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) { customerService.delete(id);
+    }
+    
+ // Get bookings of a customer from booking service
+    @GetMapping("/{customerId}/bookings")
+    public Object getCustomerBookings(@PathVariable Long customerId) {
+        String url = BOOKING_SERVICE_URL + "/" + customerId;
+        ResponseEntity<Object> response = restTemplate.getForEntity(url, Object.class);
+        return response.getBody();
+    }
+
+    // Create booking for a customer in booking service
+    @PostMapping("/{customerId}/bookings")
+    public Object createCustomerBooking(@PathVariable Long customerId, @RequestBody Object bookingRequest) {
+        String url = BOOKING_SERVICE_URL + "/" + customerId;
+        ResponseEntity<Object> response = restTemplate.postForEntity(url, bookingRequest, Object.class);
+        return response.getBody();
+    }
+    
+}
